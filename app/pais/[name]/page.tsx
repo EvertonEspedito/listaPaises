@@ -16,7 +16,7 @@ async function getCountryBorder(name:string) {
     const countries: Country[] = await response.json();
     
    const country = countries.find((country: Country)=> country.name.common == name);
-   return country.borders?.map(border=>{
+   return country?.borders?.map(border=>{
        const borderCountry = countries.find(country=>country.cca3 == border)
         return{
             name:borderCountry?.name.common,
